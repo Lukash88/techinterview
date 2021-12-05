@@ -38,7 +38,7 @@ namespace TestWebAPI.DataAccess.Configurations
 
             builder
                 .Property(x => x.StockLevel)
-                .IsRequired();
+                .IsRequired(false);
         }
     }
 }

@@ -14,8 +14,7 @@
                 .ForMember(x => x.Category, y => y.MapFrom(z => z.Category))
                 .ForMember(x => x.Price, y => y.MapFrom(z => z.Price))
                 .ForMember(x => x.ImageUrl, y => y.MapFrom(z => z.ImageUrl))
-                .ForMember(x => x.ImageThumbnailUrl, y => y.MapFrom(z => z.ImageUrl))
-                .ForMember(x => x.StockLevel, y => y.MapFrom(z => z.StockLevel));
+                .ForMember(x => x.ImageThumbnailUrl, y => y.MapFrom(z => z.ImageUrl));
 
             this.CreateMap<Product, Models.ProductDto>()
                 .ForMember(x => x.Id, y => y.MapFrom(z => z.Id))
@@ -37,8 +36,7 @@
                 .ForMember(x => x.Category, y => y.MapFrom(z => z.Category))
                 .ForMember(x => x.Price, y => y.MapFrom(z => z.Price))
                 .ForMember(x => x.ImageUrl, y => y.MapFrom(z => z.ImageUrl))
-                .ForMember(x => x.ImageThumbnailUrl, y => y.MapFrom(z => z.ImageUrl))
-                .ForMember(x => x.StockLevel, y => y.MapFrom(z => z.StockLevel));
+                .ForMember(x => x.ImageThumbnailUrl, y => y.MapFrom(z => z.ImageUrl));
         }
     }
 }

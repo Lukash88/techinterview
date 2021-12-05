@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TestWebAPI.DataAccess;
 
 namespace TestWebAPI.DataAccess.Migrations
 {
     [DbContext(typeof(TestWebAPIStorageContext))]
-    partial class TestWebAPIStorageContextModelSnapshot : ModelSnapshot
+    [Migration("20211205181003_SetStockLevelAsNullableInProducts")]
+    partial class SetStockLevelAsNullableInProducts
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

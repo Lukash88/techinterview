@@ -1,9 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using TestWebAPI.ApplicationServices.API.Domain.Product;
 
@@ -40,15 +37,18 @@ namespace TestWebAPI.Controllers
             {
                 ProductId = productId
             };
+            var response = await this.mediator.Send(request);
 
-            throw new NotImplementedException();
+            return this.Ok(response);
         }
 
         [HttpPost]
         [Route("")]
         public async Task<IActionResult> AddProduct([FromBody] AddProductRequest request)
         {
-            throw new NotImplementedException();
+            var response = await this.mediator.Send(request);
+
+            return this.Ok(response);
         }
 
         [HttpDelete]
@@ -59,8 +59,9 @@ namespace TestWebAPI.Controllers
             {
                 ProductId = productId
             };
+            var response = await this.mediator.Send(request);
 
-            throw new NotImplementedException();
+            return this.Ok();
         }
 
         [HttpPut]
@@ -68,8 +69,9 @@ namespace TestWebAPI.Controllers
         public async Task<IActionResult> UpdateProductById([FromRoute] int productId, [FromBody] UpdateProductRequest request)
         {
             request.ProductId = productId;
+            var response = await this.mediator.Send(request);
 
-            throw new NotImplementedException();
+            return this.Ok(response);
         }
 
     }

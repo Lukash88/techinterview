@@ -1,0 +1,31 @@
+﻿namespace TestWebAPI.DataAccess.Enums
+{
+    public enum ProductCatergoryEnum
+    {
+        General,
+        Appliances,
+        AppsAndGames,
+        Accessories,
+        Baby,
+        BeautyAndCare,
+        Books,
+        Music,
+        PhonesAndAccessories,
+        ClothingAndShoes,
+        Computers,
+        Electronics,
+        GardenAndOutdoor,
+        Food,
+        Handmade,
+        Health,
+        HomeAndKitchen,
+        IndustrialAndScientific,
+        Travelling,
+        MoviesAndTV,
+        Office,
+        PetSupplies,
+        Sports,
+        Tools,
+        ToysAndGames
+    }
+}

@@ -6,6 +6,7 @@ using TestWebAPI.ApplicationServices.API.Domain.Models;
 using TestWebAPI.ApplicationServices.API.Domain.Product;
 using TestWebAPI.DataAccess.CQRS.Queries;
 using TestWebAPI.DataAccess.CQRS.Queries.Product;
+using static System.Net.WebRequestMethods;
 
 namespace TestWebAPI.ApplicationServices.API.Handlers
 {
@@ -31,7 +32,7 @@ namespace TestWebAPI.ApplicationServices.API.Handlers
             {
                 return new GetProductByIdResponse()
                 {
-                    Data = null
+                    Data = null                 
                 };
             }
 
@@ -43,5 +44,6 @@ namespace TestWebAPI.ApplicationServices.API.Handlers
 
             return response;
         }
+
     }
 }

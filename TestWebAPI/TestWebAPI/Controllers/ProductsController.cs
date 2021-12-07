@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Threading.Tasks;
 using TestWebAPI.ApplicationServices.API.Domain.Product;
 
@@ -21,6 +22,8 @@ namespace TestWebAPI.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(Summary = "Retrieves filtered products or all products", 
+                          Description = "Possible filtering using product names or categories or both of them")]
         [Route("")]
         public async Task<IActionResult> GetAllProducts([FromQuery] GetProductsRequest request)
         {
@@ -30,6 +33,7 @@ namespace TestWebAPI.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(Summary = "Retrieves a specific products by unique id")]
         [Route("{productId}")]
         public async Task<IActionResult> GetProductById([FromRoute] int productId)
         {
@@ -39,10 +43,12 @@ namespace TestWebAPI.Controllers
             };
             var response = await this.mediator.Send(request);
 
+
             return this.Ok(response);
         }
 
         [HttpPost]
+        [SwaggerOperation(Summary = "Creates a new product")]
         [Route("")]
         public async Task<IActionResult> AddProduct([FromBody] AddProductRequest request)
         {
@@ -52,6 +58,7 @@ namespace TestWebAPI.Controllers
         }
 
         [HttpDelete]
+        [SwaggerOperation(Summary = "Removes a existing product by unique id")]
         [Route("{productId}")]
         public async Task<IActionResult> RemoveProductById([FromRoute] int productId)
         {
@@ -65,6 +72,7 @@ namespace TestWebAPI.Controllers
         }
 
         [HttpPut]
+        [SwaggerOperation(Summary = "Updates a existing product by unique id")]
         [Route("{productId}")]
         public async Task<IActionResult> UpdateProductById([FromRoute] int productId, [FromBody] UpdateProductRequest request)
         {

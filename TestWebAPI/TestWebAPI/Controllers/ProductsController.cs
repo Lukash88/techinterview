@@ -13,6 +13,7 @@ namespace TestWebAPI.Controllers
     {
         private readonly IMediator mediator;
         private readonly ILogger<ProductsController> logger;
+        public System.Net.Http.HttpContent Content { get; set; }
 
         public ProductsController(IMediator mediator, ILogger<ProductsController> logger)
         {
@@ -28,7 +29,7 @@ namespace TestWebAPI.Controllers
         public async Task<IActionResult> GetAllProducts([FromQuery] GetProductsRequest request)
         {
             var response = await this.mediator.Send(request);
-
+            
             return this.Ok(response);
         }
 
@@ -41,8 +42,16 @@ namespace TestWebAPI.Controllers
             {
                 ProductId = productId
             };
-            var response = await this.mediator.Send(request);
+            if (request.ProductId <= 0)
+            {
+                return BadRequest();
+            }
 
+            var response = await this.mediator.Send(request);
+            if (response == null)
+            {
+                return this.NotFound();
+            }
 
             return this.Ok(response);
         }
@@ -68,7 +77,7 @@ namespace TestWebAPI.Controllers
             };
             var response = await this.mediator.Send(request);
 
-            return this.Ok();
+            return this.Ok(response);
         }
 
         [HttpPut]
